@@ -24,4 +24,18 @@ class Attendance extends Database
 
         return $statement->execute();
     }
+
+    public function delete(array|string $data): bool
+    {
+        $sql = <<<SQL
+    DELETE FROM $this->table
+    WHERE jiri_id = :jiri_id
+    AND contact_id = :contact_id
+SQL;
+        $statement = $this->prepare($sql);
+        $statement->bindValue('contact_id', $data['contact_id']);
+        $statement->bindValue('jiri_id', $data['jiri_id']);
+
+        return $statement->execute();
+    }
 }

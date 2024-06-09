@@ -34,4 +34,16 @@ class AttendanceController
 
         Response::redirect('/jiri?id='.$data['jiri_id']);
     }
+
+    public function destroy()
+    {
+        $data = Validator::check([
+            'jiri_id' => 'required',
+            'contact_id' => 'required',
+        ]);
+
+        $this->attendance->delete($data);
+
+        Response::redirect('/jiri?id='.$data['jiri_id']);
+    }
 }

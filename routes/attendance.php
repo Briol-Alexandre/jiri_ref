@@ -14,4 +14,6 @@ $router->post('/attendance', [AttendanceController::class, 'store'])->only('auth
 $router->get('/attendance/edit', [AttendanceController::class, 'edit'])->only('auth');*/
 $router->patch('/attendance', [AttendanceController::class, 'update'])->only('auth')->csrf();
 
-/*$router->delete('/attendance', [AttendanceController::class, 'destroy'])->only('auth')->csrf();*/
+
+
+$router->delete('/attendance', [AttendanceController::class, 'destroy'])->only('auth')->csrf();

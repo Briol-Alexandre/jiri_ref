@@ -1,6 +1,8 @@
 <?php
 /** @var stdClass $jiri */
 
+/** @var array $contacts */
+
 use Carbon\Carbon;
 
 ?>
@@ -46,12 +48,15 @@ use Carbon\Carbon;
             $date = Carbon::now()->format('Y-m-d H:i');
             component('forms.controls.label-and-input', [
                 'name' => 'starting_at',
-                'label' => "Date et heure de début du jury<span class='block font-normal'>au format {$date}</span>",
+                'label' => "Date et heure de début du jury<span class='block font-normal'>au format $date</span>",
                 'type' => 'text',
                 'value' => Carbon::createFromFormat('Y-m-d H:i:s', $jiri->starting_at)
                     ->format('Y-m-d H:i'),
                 'placeholder' => $date,
             ]);
+            ?>
+            <?php
+            component('contacts.list', compact('contacts'));
             ?>
         </div>
         <div>

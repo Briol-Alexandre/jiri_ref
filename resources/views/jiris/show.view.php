@@ -69,6 +69,22 @@ use Carbon\Carbon;
                                     class="px-2 bg-red-500 text-white rounded">Changer en évaluateur
                             </button>
                         </form>
+                        <form action="/attendance"
+                              method="post">
+                            <?php
+                            method('delete');
+                            csrf_token();?>
+                            <input type="hidden"
+                                   name="jiri_id"
+                                   value="<?= $jiri->id ?>">
+                            <input type="hidden"
+                                   name="contact_id"
+                                   value="<?= $student->id ?>">
+                            <button type="submit"
+                                    class="px-2 bg-red-500 text-white rounded">
+                                Supprimer du Jiri
+                            </button>
+                        </form>
                     </li>
                 <?php
                 endforeach; ?>
@@ -103,6 +119,22 @@ use Carbon\Carbon;
                                    value="student">
                             <button type="submit"
                                     class="px-2 bg-red-500 text-white rounded">Changer en étudiant
+                            </button>
+                        </form>
+                        <form action="/attendance"
+                              method="post">
+                            <?php
+                            method('delete');
+                            csrf_token();?>
+                            <input type="hidden"
+                                   name="jiri_id"
+                                   value="<?= $jiri->id ?>">
+                            <input type="hidden"
+                                   name="contact_id"
+                                   value="<?= $evaluator->id ?>">
+                            <button type="submit"
+                                    class="px-2 bg-red-500 text-white rounded">
+                                Supprimer du Jiri
                             </button>
                         </form>
                     </li>
